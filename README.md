@@ -11,13 +11,44 @@
 **A highly customized, aesthetic, and workflow-oriented Hyprland configuration.**
 
 </div>
+
 <br />
 
 ## 🚀 Overview
 
 This repository contains my personal configuration files (dotfiles) for a complete Wayland-based desktop environment centered around **Hyprland**. It is designed to be lightweight yet feature-rich, focusing on a seamless workflow.
 
-### 📂 Repository Structure
+---
+
+## 🖼️ Gallery
+
+<div align="center">
+  <img src="screenshots/setup-02.png" width="49%" style="border-radius: 8px;" />
+  <img src="screenshots/setup-03.png" width="49%" style="border-radius: 8px;" />
+  <br />
+  <img src="screenshots/setup-05.png" width="98.5%" style="border-radius: 8px; margin-top: 10px;" />
+  <p align="center"><i>Showcasing the Desktop and Lockscreen/DM (Setup 05)</i></p>
+</div>
+
+---
+
+## 💻 The Development Experience
+
+### ⚡ Neovim & Zellij
+
+My development workflow is powered by the lethal combination of **Neovim** and **Zellij**. While Neovim handles the code, Zellij manages the workspace with its modern workspace layout and high-performance multiplexing.
+<br />
+<img src="screenshots/setup-06.png" width="100%" alt="Neovim Showcase" style="border-radius: 10px;">
+
+### 📊 System Information (Fastfetch)
+
+Everything at a glance. My `fastfetch` is tuned to give me system vitals instantly upon opening the terminal.
+<br />
+<img src="screenshots/setup-04.png" width="100%" alt="Fastfetch Showcase" style="border-radius: 10px;">
+
+---
+
+## 📂 Repository Structure
 
 | Directory     | Description                           |
 | :------------ | :------------------------------------ |
@@ -31,18 +62,7 @@ This repository contains my personal configuration files (dotfiles) for a comple
 
 ---
 
-## 🖼️ Gallery
-
-<div align="center">
-  <img src="screenshots/setup-02.png" width="48%" />
-  <img src="screenshots/setup-03.png" width="48%" />
-</div>
-
----
-
 ## 🛠️ Software Stack
-
-My daily drivers and essential tools, organized by category:
 
 ### 🌐 Browsers & Communication
 
@@ -53,10 +73,10 @@ My daily drivers and essential tools, organized by category:
 
 ### 💻 Development & Editors
 
-|                    |             |            |             |
-| :----------------: | :---------: | :--------: | :---------: |
-|     **Neovim**     | **VS Code** | **Cursor** | **Zed IDE** |
-| **Android Studio** | **Postman** | **Ghosty** |  **Kitty**  |
+|             |                    |             |                        |
+| :---------: | :----------------: | :---------: | :--------------------: |
+| **Neovim**  |     **Zellij**     | **VS Code** |       **Cursor**       |
+| **Zed IDE** | **Android Studio** | **Postman** | **Ghosty** / **Kitty** |
 
 ### ⚙️ Utilities & Productivity
 
@@ -71,3 +91,8 @@ My daily drivers and essential tools, organized by category:
 |           |               |                |
 | :-------: | :-----------: | :------------: |
 | **Steam** | **TLauncher** | **OBS Studio** |
+
+<div align="center">
+  <br />
+  <sub>Built by <a href="https://github.com/ba7rIbrahim">ba7rIbrahim</a></sub>
+</div>
