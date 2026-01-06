@@ -16,53 +16,45 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
+    -- 1. Add LazyVim core
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
         colorscheme = "solarized-osaka",
+        format = {
+          autoformat = false,
+        },
       },
     },
-    -- import any extras modules here
-    { import = "lazyvim.plugins.extras.linting.eslint" },
+
+    -- 2. AI extras
+    { import = "lazyvim.plugins.extras.ai.codeium" },
+
+    -- 3. Web extras (Next, React)
+    { import = "lazyvim.plugins.extras.lang.typescript" }, -- React/Next
+    { import = "lazyvim.plugins.extras.lang.tailwind" }, -- Tailwind
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.rust" },
-    { import = "lazyvim.plugins.extras.lang.tailwind" },
-    -- { import = "lazyvim.plugins.extras.dap.core" },
-    -- { import = "lazyvim.plugins.extras.vscode" },
+
+    -- 4. AI assist
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-    -- { import = "lazyvim.plugins.extras.test.core" },
-    -- { import = "lazyvim.plugins.extras.coding.yanky" },
-    -- { import = "lazyvim.plugins.extras.editor.mini-files" },
-    -- { import = "lazyvim.plugins.extras.util.project" },
+
+    -- 5. Import persoal file from lua/plugins folder
     { import = "plugins" },
   },
   defaults = {
-    -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
-    -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
     lazy = false,
-    -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
-    -- have outdated releases, which may break your Neovim install.
-    version = false, -- always use the latest git commit
-    -- version = "*", -- try installing the latest stable version for plugins that support semver
+    version = false,
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = {
-    enabled = true, -- check for plugin updates periodically
-    notify = false, -- notify on update
-  }, -- automatically check for plugin updates
+  checker = { enabled = true, notify = false },
   performance = {
     rtp = {
-      -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
@@ -71,3 +63,31 @@ require("lazy").setup({
     },
   },
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    local hl_groups = {
+      "Normal",
+      "NormalNC",
+      "NormalFloat",
+      "FloatBorder",
+      "SignColumn",
+      "LineNr",
+      "CursorLineNr",
+      "StatusLine",
+      "MsgArea",
+      "Pmenu",
+      "TeleScopeBorder",
+      "NvimTreeNormal",
+      "NormalDark",
+      "NonText",
+      "EndOfBuffer",
+    }
+    for _, group in ipairs(hl_groups) do
+      vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
+    end
+  end,
+})
+
+vim.cmd("colorscheme solarized-osaka")

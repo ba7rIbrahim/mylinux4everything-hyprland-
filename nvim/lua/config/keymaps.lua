@@ -3,4 +3,24 @@
 -- Add any additional keymaps here
 --
 --
-vim.keymap.set("n", "<C-h>", "<C>wh", { silent = true })
+-- Fixed Window Navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
+
+-- Auto Save Toggle
+vim.keymap.set("n", "<leader>as", function()
+  if vim.g.auto_save_enabled == true then
+    vim.g.auto_save_enabled = false
+    print("Auto-Save: OFF")
+  else
+    vim.g.auto_save_enabled = true
+    print("Auto-Save: ON")
+  end
+end, { desc = "Toggle Auto-Save" })
+
+-- Manual Save
+vim.keymap.set("n", "<leader>s", ":w<CR>", { desc = "Save File" })
+
+-- Manual Format
+vim.keymap.set("n", "<leader>fm", function()
+  LazyVim.format({ force = true })
+end, { desc = "Format Document (Manual)" })
